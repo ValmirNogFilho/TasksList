@@ -1,8 +1,13 @@
 :root
 {
-  --green-btn: #22c55e;
-  --green-btn-hover: #16a34a;
+  --green-btn: #10b981;
+  --green-btn-hover: #059669;
   --bg: #155e75;
+  --task-list-bg: #64748b;
+  --task-bg: #cbd5e1;
+  --blue-btn: #0284c7;
+  --blue-btn-hover: #075985;
+
 }
 
 *
@@ -17,4 +22,5 @@
 body
 {
   background-color: var(--bg);
+  height: 100%;
 }
