@@ -1,33 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
+import Button from './components/Button/Button'
+import TaskList from './components/TaskList/TaskList'
+import ModalForm from './components/ModalForm/ModalForm'
+import axios from 'axios'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [modalOpened, setModalOpened] = useState(false)
+  const [pendingTasks, setPendingTasks] = useState([])
+  const [currentTasks, setCurrentTasks] = useState([])
+  const [concludedTasks, setConcludedTasks] = useState([])
+
+  function organizeTasks(tasks) {
+    const pending = [];
+    const current = [];
+    const concluded = [];
+  
+    tasks.forEach((task) => {
+      switch (task.status) {
+        case "Pendente":
+          pending.push(task);
+          break;
+        case "Em andamento":
+          current.push(task);
+          break;
+        case "Concluído":
+          concluded.push(task);
+          break;
+        default:
+          break;
+      }
+    });
+  
+    setPendingTasks(pending);
+    setCurrentTasks(current);
+    setConcludedTasks(concluded);
+  }  
+  
+
+  function getTasks() {
+    axios.get("http://127.0.0.1:5050/tasks")
+      .then((response) => {
+        organizeTasks(response.data)
+      })
+      .catch((error) => {
+        console.error("Erro na requisição:", error);
+      });
+  }
+
+  useEffect(() => {
+    getTasks()
+  }, []);
+  
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="top">
+        <h1>
+          Task Manager
+        </h1>
+        <Button onclick={() => setModalOpened(true)} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="task-lists">
+        <TaskList listName={"Pendente"} tasks={pendingTasks} setTasks={setPendingTasks}/>
+        <TaskList listName={"Em andamento"} tasks={currentTasks} setTasks={setCurrentTasks}/>
+        <TaskList listName={"Concluído"} tasks={concludedTasks} setTasks={setConcludedTasks}/>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ModalForm modalOpen={modalOpened} closeModal={() => setModalOpened(false)} reload={getTasks} initialStatus={1}/>
     </>
   )
 }
