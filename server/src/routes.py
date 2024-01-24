@@ -1,14 +1,14 @@
 from src import app, db
 from src.models import Task
 from flask import jsonify, request
-
+import datetime
 
 @app.route("/tasks", methods=["GET"])
 def findManyTasks():
     all_tasks = Task.query.all()
-
+    all_formatted_tasks = [task.as_dict() for task in all_tasks]
     return jsonify(
-        all_tasks
+        all_formatted_tasks
     ), 200
 
 
@@ -19,7 +19,8 @@ def createNewTask():
     new_task: Task = Task(
         title=req["title"],
         description=req["description"],
-        status=req["status"]
+        status=req["status"],
+        date=datetime.date.today()
     )
 
     db.session.add(new_task)
@@ -64,7 +65,7 @@ def deleteTask(id):
         ), 404
 
     db.session.delete(task)
-
+    db.session.commit()
     return jsonify(
         {
             "message": "task has been deleted successfully"
