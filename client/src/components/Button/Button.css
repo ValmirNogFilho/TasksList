@@ -1,0 +1,21 @@
+.add-task-btn
+{
+    width: 30rem;
+    border: none;
+    background-color: var(--green-btn);
+    transition: .3s;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.add-task-btn:hover
+{
+    background-color: var(--green-btn-hover);
+    color: #e0dddd;
+}
+
+.add-task-btn h1 
+{
+    padding: 1rem 0;
+    font-weight: 500;
+}
