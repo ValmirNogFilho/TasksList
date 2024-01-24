@@ -1,0 +1,25 @@
+.task-list
+{
+    background-color: var(--task-list-bg);
+    width: 23rem;
+    height: 70vh;
+    border-top-right-radius: 10px;
+    box-shadow: 10px 0px 20px rgba(0,0,0,0.2);
+}
+
+.title
+{
+    background-color: rgba(0,0,0,0.2);
+    border-top-right-radius: inherit;
+    padding: 0.5em;
+}
+
+.title > h4 
+{
+    font-weight: 500;
+}
+
+.tasks
+{
+    padding: 1em;
+}
