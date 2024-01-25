@@ -3,7 +3,7 @@ import './Task.css'
 import axios from 'axios'
 import ModalForm from '../ModalForm/ModalForm'
 
-const baseUrl = "https://tasks-list-api.vercel.app/"
+const baseUrl = "https://tasks-list-api.vercel.app"
 const Task = ({status, id, title, description, date}) => {
     const [isDeleted, setIsDeleted] = useState(false)
     const [modalOpened, setModalOpened] = useState(false)

@@ -5,7 +5,7 @@ import TaskList from './components/TaskList/TaskList'
 import ModalForm from './components/ModalForm/ModalForm'
 import axios from 'axios'
 
-const baseUrl = "https://tasks-list-api.vercel.app/"
+const baseUrl = "https://tasks-list-api.vercel.app"
 
 function App() {
 
