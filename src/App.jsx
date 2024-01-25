@@ -5,6 +5,8 @@ import TaskList from './components/TaskList/TaskList'
 import ModalForm from './components/ModalForm/ModalForm'
 import axios from 'axios'
 
+const baseUrl = "https://tasks-list-api.vercel.app/"
+
 function App() {
 
   const [modalOpened, setModalOpened] = useState(false)
@@ -49,7 +51,7 @@ function App() {
   
 
   function getTasks() {
-    axios.get("http://127.0.0.1:5050/tasks")
+    axios.get(baseUrl + "/tasks")
       .then((response) => {
         organizeTasks(response.data)
       })
@@ -61,7 +63,7 @@ function App() {
 
   function createNewTask() {
     console.log(formData)
-    axios.post("http://127.0.0.1:5050/tasks", formData)
+    axios.post(baseUrl + "/tasks", formData)
     .then( () => {
       closeModal()
       getTasks()
