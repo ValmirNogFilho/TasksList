@@ -5,7 +5,7 @@
     height: 5rem;
     background-color: var(--task-bg);
     padding: .3em;
-    transition: .2  s ease-out;
+    transition: .2s ease-out;
     margin-bottom: 1em;
     overflow: hidden;
 }
@@ -15,9 +15,14 @@
     color: black;
 }
 
-.task > h6
+.task > h4 
 {
     font-weight: 500;
+}
+
+.task > h6
+{
+    font-weight: 300;
     font-size: smaller;
 }
 
@@ -35,20 +40,24 @@
     background-color: #eee;
 }
 
-.task:hover .edit,
-.task:hover .delete,
-.task:hover .see
+.task:hover .icons
 {
     display: inline-block;
 }
 
-.edit, .delete, .see
+.icons
 {
     position: absolute;
     width: 15px;
     aspect-ratio: 1;
     display: none;
     cursor: pointer;
+    transition: .1s;
+}
+
+.icons:hover
+{
+    transform: scale(1.2);
 }
 
 .edit
