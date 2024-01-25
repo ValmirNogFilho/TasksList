@@ -99,3 +99,20 @@ textarea
     align-items: center;
     justify-content: space-between;
 }
+
+@media (max-width:450px)
+{
+    .modal-content
+    {
+        width: 100%;
+    }
+}
+
+
+@media (max-width:330px)
+{
+    .bottom
+    {
+        flex-direction: column;
+    }
+}
