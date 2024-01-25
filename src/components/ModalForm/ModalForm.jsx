@@ -21,12 +21,12 @@ const ModalForm = ({modalOpen, closeModal, callback, form, setForm, disabled}) =
                     <option value="2">Em andamento</option>
                     <option value="3">Concluído</option>
                 </select>
-                {!disabled &&
                 <div className="buttons">
-                  <button className="cancel" onClick={closeModal}>Cancelar</button>
+                  <button className="cancel" onClick={closeModal}>Voltar</button>
+                  {!disabled &&
                   <button type="submit" className='send' onClick={callback}>Salvar</button>
+                  }
                 </div>
-                }
               </div>
             </div>
           </div>
