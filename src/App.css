@@ -1,0 +1,36 @@
+
+.top
+{
+    display: grid;
+    place-items: center;
+    padding-bottom: 1rem;
+}
+
+.top > h1 
+{
+    margin: 1rem 0;
+    font-weight: 100;
+    text-align: center;
+}
+
+.task-lists
+{
+    width: 100%;
+    padding: 3rem 0;
+    background-color: rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 70vh;
+    gap: 1em;
+    flex-wrap: wrap;
+} 
+
+
+@media (max-width: 330px) {    
+    .top > h1 
+    {
+        font-size: medium;
+    }
+}

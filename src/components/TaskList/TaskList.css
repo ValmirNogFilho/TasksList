@@ -1,0 +1,60 @@
+.task-list
+{
+    background-color: var(--task-list-bg);
+    width: 23rem;
+    border-top-right-radius: 10px;
+    box-shadow: 10px 0px 20px rgba(0,0,0,0.2);
+}
+
+.title
+{
+    background-color: rgba(0,0,0,0.2);
+    border-top-right-radius: inherit;
+    padding: .5em;
+}
+
+.title > h4 
+{
+    font-weight: 500;
+    color: #eee;
+}
+
+.tasks
+{
+    height: 50vh;
+    padding: 1em;
+    overflow-y: scroll;
+}
+
+.tasks::-webkit-scrollbar
+{
+    width: 10px;
+}
+  
+.tasks::-webkit-scrollbar-thumb
+{
+    background-color: #888;
+}
+  
+.tasks::-webkit-scrollbar-track, .tasks::-ms-scrollbar-track 
+{
+    background-color: inherit;
+}
+
+.tasks::-ms-scrollbar 
+{
+    width: 10px;
+}
+  
+.tasks::-ms-scrollbar-thumb {
+    background-color: #888;
+}
+  
+
+
+@media (max-width: 330px) {    
+    .task-list 
+    {
+        width: 100%;
+    }
+}
